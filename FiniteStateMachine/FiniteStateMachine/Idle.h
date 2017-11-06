@@ -1,6 +1,5 @@
 #pragma once
 #include "State.h"
-#include "Animation.h"
 
 class Idle : public State
 {

@@ -1,5 +1,8 @@
 #include "State.h"
 
+State::State() {}
+State::~State() {}
+
 void State::idle(Animation * a)
 {
 	std::cout << "State::Idling" << std::endl;

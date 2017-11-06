@@ -1,10 +1,13 @@
 #pragma once
 #include <iostream>
-#include "Animation.h"
+#include <Animation.h>
 
 class State
 {
+
 public:
+	State();
+	~State();
 	virtual void idle(Animation* a);
 	virtual void shoveling(Animation* a);
 	virtual void hammering(Animation* a);
