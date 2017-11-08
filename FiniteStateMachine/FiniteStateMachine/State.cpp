@@ -32,3 +32,7 @@ void State::swording(Animation * a)
 {
 	std::cout << "State::Swording" << std::endl;
 }
+
+void State::render(sf::RenderWindow & window)
+{
+}
