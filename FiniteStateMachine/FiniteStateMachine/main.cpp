@@ -19,6 +19,8 @@
 #include "Animation.h"
 #include <thread>
 #include <chrono>
+#include <stdlib.h>
+#include <time.h>
 
 void render();
 
@@ -28,22 +30,65 @@ int i = 0;
 
 int main()
 {
+	srand(time(NULL));
 	render();
 	while (true)
 	{
+		i = rand() % 5;
 		if (i == 0)
 		{
 			fsm.jumping();
+			render();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+			fsm.idle();
+			render();
 			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 			i = 1;
-			render();
 		}
-		else
+		if (i == 1)
 		{
-			fsm.idle();
-			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-			i = 0;
+			fsm.walking();
 			render();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+			fsm.idle();
+			render();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			i = 1;
+		}
+		if (i == 2)
+		{
+			fsm.shoveling();
+			render();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+			fsm.idle();
+			render();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			i = 1;
+		}
+		if (i == 3)
+		{
+			fsm.hammering();
+			render();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+			fsm.idle();
+			render();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			i = 1;
+		}
+		if (i == 4)
+		{
+			fsm.swording();
+			render();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+			fsm.idle();
+			render();
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			i = 1;
 		}
 	}
 
